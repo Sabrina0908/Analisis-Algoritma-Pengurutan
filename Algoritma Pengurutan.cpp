@@ -105,7 +105,7 @@ void quickSort(vector<int>& arr, int low, int high) {
     }
 }
 
-vector<int> generateRandomArray(int size) {
+vector<int> generateRandomArray(int size) {    //Menghasilkan array acak
     vector<int> arr(size);
     random_device rd;
     mt19937 gen(rd());
@@ -116,7 +116,7 @@ vector<int> generateRandomArray(int size) {
     return arr;
 }
 
-vector<int> generateSortedArray(int size) {
+vector<int> generateSortedArray(int size) {    //Menghasilkan array terurut
     vector<int> arr(size);
     for (int i = 0; i < size; i++) {
         arr[i] = i;
@@ -124,7 +124,7 @@ vector<int> generateSortedArray(int size) {
     return arr;
 }
 
-vector<int> generateReverseSortedArray(int size) {
+vector<int> generateReverseSortedArray(int size) {    //Menghasilkan array terurut terbalik
     vector<int> arr(size);
     for (int i = 0; i < size; i++) {
         arr[i] = size - i;
