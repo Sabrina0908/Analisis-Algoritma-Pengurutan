@@ -105,7 +105,7 @@ void quickSort(vector<int>& arr, int low, int high) {
     }
 }
 
-vector<int> generateRandomArray(int size) {    //Menghasilkan array acak
+vector<int> generateRandomArray(int size) {
     vector<int> arr(size);
     random_device rd;
     mt19937 gen(rd());
@@ -116,7 +116,7 @@ vector<int> generateRandomArray(int size) {    //Menghasilkan array acak
     return arr;
 }
 
-vector<int> generateSortedArray(int size) {    //Menghasilkan array terurut
+vector<int> generateSortedArray(int size) {
     vector<int> arr(size);
     for (int i = 0; i < size; i++) {
         arr[i] = i;
@@ -124,7 +124,7 @@ vector<int> generateSortedArray(int size) {    //Menghasilkan array terurut
     return arr;
 }
 
-vector<int> generateReverseSortedArray(int size) {    //Menghasilkan array terurut terbalik
+vector<int> generateReverseSortedArray(int size) {
     vector<int> arr(size);
     for (int i = 0; i < size; i++) {
         arr[i] = size - i;
@@ -152,9 +152,16 @@ int main() {
 
     for (const auto& condition : conditions) {
         cout << "Condition: " << condition << endl;
-        cout << "Algoritma\tN=10 (μs)\tN=100 (μs)\tN=500 (μs)\tN=1000 (μs)\tN=10000 (μs)\n";
+        cout << "Algoritma\tKompleksitas Waktu\tN=10 (μs)\tN=100 (μs)\tN=500 (μs)\tN=1000 (μs)\tN=10000 (μs)\n";
         for (size_t i = 0; i < algorithms.size(); i++) {
             cout << algorithms[i] << "\t";
+            switch (i) {
+                case 0: cout << "O(n^2)\t\t"; break;
+                case 1: cout << "O(n^2)\t\t"; break;
+                case 2: cout << "O(n^2)\t\t"; break;
+                case 3: cout << "O(n log n)\t"; break;
+                case 4: cout << "O(n log n)\t"; break;
+            }
             for (int size : sizes) {
                 vector<int> arr = dataGenerators[&condition - &conditions[0]](size);
                 long long time = measureExecutionTime(sortingFunctions[i], arr);
